@@ -504,7 +504,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
 // ═══════════════════════════════════════
 // CONFIG
 // ═══════════════════════════════════════
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyjd3OlSywRmF5KF2_LoXYCqv7eKiKBjyEiGNgpgy2S9nRzf4RMrtQ8Oo3pRMTMgyQI/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzferaNSNKiUXyjIxaCjKsJDerz3DLpVx7iNYCThrBFP3cUQnz5lp791CUJg_2HsMOQ/exec';
 let currentUser = null;
 
 // ═══════════════════════════════════════
@@ -1574,18 +1574,7 @@ function goToNewDemand(){
     document.getElementById('demFormWrap')?.scrollIntoView({behavior:'smooth',block:'start'});
     document.getElementById('dTit')?.focus();
   }, 100);
-function enviarObsAtividade(){
-  const ativ=document.getElementById('actSel').value;
-  const tipo=document.getElementById('actType').value;
-  const msg=document.getElementById('actMsg').value.trim();
-  if(!msg){showToast('⚠️ Escreva uma mensagem.','var(--red)');return;}
-  const item=document.createElement('div');
-  item.style.cssText='padding:12px;background:var(--card2);border-radius:9px;margin-bottom:8px;border:1px solid var(--orange);border-left:3px solid var(--orange)';
-  item.innerHTML=`<div style="font-size:13px;font-weight:700">${tipo}: ${ativ}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${currentUser?.nome} • Agora</div><div style="font-size:12px;margin-top:4px">${msg}</div>`;
-  document.getElementById('c-act-list').prepend(item);
-  document.getElementById('actMsg').value='';
-  showToast('✅ Observação enviada!');
-}
+}const ativ=document.getElementById('actSel').value;const tipo=document.getElementById('actType').value;const msg=document.getElementById('actMsg').value.trim();if(!msg){showToast('⚠️ Escreva uma mensagem.','var(--red)');return;}const item=document.createElement('div');item.style.cssText='padding:12px;background:var(--card2);border-radius:9px;margin-bottom:8px;border:1px solid var(--orange);border-left:3px solid var(--orange)';item.innerHTML=`<div style="font-size:13px;font-weight:700">${tipo}: ${ativ}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${currentUser?.nome} • Agora</div><div style="font-size:12px;margin-top:4px">${msg}</div>`;document.getElementById('c-act-list').prepend(item);document.getElementById('actMsg').value='';showToast('✅ Observação enviada!');}
 function toggleResp(btn){btn.closest('.di').querySelector('.resp-box').classList.toggle('open');}
 function sendResp(btn){const box=btn.closest('.resp-box');const txt=box.querySelector('textarea').value.trim();if(!txt)return;box.innerHTML=`<div style="font-size:12px;color:var(--green)">✅ Resposta enviada: "${txt.substring(0,60)}"</div>`;showToast('Resposta enviada!');}
 function updateClientDriveLabel(){const c=DB.clients.find(x=>x.user===currentUser?.user);document.getElementById('driveFolderLabel').textContent=c?.drive?'Abrir minha pasta →':'Pasta não configurada';}
